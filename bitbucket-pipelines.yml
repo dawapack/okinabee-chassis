@@ -1,0 +1,43 @@
+image: atlassian/default-image:latest
+
+definitions:
+  steps:
+    - step: &hotfix-deploy
+        name: Hotfix deploy
+        script:
+          - pipe: atlassian/ssh-run:0.6.1
+            variables:
+#              SSH_USER: 'wwwsabrini'
+#              SERVER: 'sabrini.ro'
+#              COMMAND: 'cd ../www-integrations/erp/hotfix && ./deploy/scripts/deploy.sh RC-HOTFIX'
+#              MODE: 'command'
+#              PORT: '22'
+    - step: &staging-deploy
+        name: Staging deploy
+        script:
+          - pipe: atlassian/ssh-run:0.6.1
+            variables:
+#              SSH_USER: 'wwwsabrini'
+#              SERVER: 'sabrini.ro'
+#              COMMAND: 'cd ../www-integrations/erp/staging && ./deploy/scripts/deploy.sh RC-STAGING'
+#              MODE: 'command'
+#              PORT: '22'
+    - step: &production-deploy
+        name: Production deploy
+        script:
+          - pipe: atlassian/ssh-run:0.6.1
+            variables:
+#              SSH_USER: 'wwwsabrini'
+#              SERVER: 'sabrini.ro'
+#              COMMAND: 'cd ../www-integrations/erp/production && ./deploy/scripts/deploy.sh master'
+#              MODE: 'command'
+#              PORT: '22'
+#pipelines:
+#  branches:
+#    '{RC-HOTFIX}':
+#      - step: *hotfix-deploy
+#    '{RC-STAGING}':
+#      - step: *staging-deploy
+#  tags:
+#    'v*':
+#      - step: *production-deploy

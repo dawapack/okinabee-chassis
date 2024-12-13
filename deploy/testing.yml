@@ -1,0 +1,23 @@
+version: '3.3'
+
+services:
+  code-quality:
+    image: cezarvant/okinabee-chassis:latest
+    environment:
+      ORIGIN: "eu"
+      REGION: "eu-bucharest-1"
+      APP_ENV: "testing"
+    volumes:
+      - "/var/www/okinabee-chassis:."
+    deploy:
+      placement:
+        constraints:
+          - node.labels.running-on.testing == true
+      resources:
+        limits:
+          cpus: "1"
+          memory: "512M"
+        reservations:
+          memory: "256M"
+      restart_policy:
+        condition: none

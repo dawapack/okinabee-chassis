@@ -1,0 +1,7 @@
+# folders
+/.idea
+/tools
+
+# files
+.env
+.phpunit.result.cache
